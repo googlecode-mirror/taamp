@@ -4,4 +4,5 @@
 
 net start Taamp.Mysql
 net start Taamp.Apache
+start http://localhost
 PAUSE
