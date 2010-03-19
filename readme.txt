@@ -9,3 +9,5 @@ TaAMP主要方便新手学习php时使用.另外还为以后我的php开发框架ToAction作为开发环境的
 
 三、卸载方法
 只需要进行TaAMP\setup目录双击运行uninstall.bat (服务器程序就可以轻松卸载)
+
+Mysql默认管理帐号: root 密码:111111
