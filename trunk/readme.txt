@@ -28,3 +28,8 @@ Mysql默认管理帐号: root 密码:111111
 
 四、SVN管理
 如何管理svn可以访问 http://atim.cn/go.php/tags/svn/
+
+
+相关链接
+作者博客 http://atim.cn
+项目主站 http://www.toaction.cn 或 http://code.google.com/p/taamp

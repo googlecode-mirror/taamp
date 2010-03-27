@@ -7,6 +7,6 @@ sc create TaAMP.Svn binpath= "%TaAMPServerPath%\local\svn\bin\svnserve.exe --ser
 net start TaAMP.Mysql
 net start TaAMP.Apache
 net start TaAMP.Svn
-start http://localhost
+start http://localhost/phpinfo.php
 start %TaAMPServerPath%\readme.txt
 PAUSE
