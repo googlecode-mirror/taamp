@@ -30,6 +30,9 @@ Mysql默认管理帐号: root 密码:111111
 如何管理svn可以访问 http://atim.cn/go.php/tags/svn/
 
 
+五、日常管理
+Apache 和 Mysql可以通过 Monitor.exe(安装目录下)进行管理。而svn服务将随系统启动。
+
 相关链接
 作者博客 http://atim.cn
 项目主站 http://www.toaction.cn 或 http://code.google.com/p/taamp
