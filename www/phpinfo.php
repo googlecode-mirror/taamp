@@ -16,7 +16,7 @@ $version = "0.0.1";
 extract($_GET);extract($_POST);
 $page_time_start=getmicrotime();
 
-if ("phpinfo" == $testinfo)
+if (isset($testinfo) && "phpinfo" == $testinfo)
 {
 	phpinfo();
 	exit;
@@ -35,14 +35,14 @@ $mtime[] = array("恩博在线 商务型(L)-200M (2004-5-14)","554 毫秒","551 
 $mtime[] = array("<font color=red>当前这台服务器</font>",addTime()." 毫秒",sqrtTime()." 毫秒");
 
 /*获取服务器信息*/
-$info[] = array("域名","Domain Name",$_SERVER['SERVER_NAME']."&nbsp;-&nbsp;".getenv(SERVER_ADDR));//主机名
-$info[] = array("服务器端口","Server Port",getenv(SERVER_PORT));//端口
+$info[] = array("域名","Domain Name",$_SERVER['SERVER_NAME']."&nbsp;-&nbsp;".getenv('SERVER_ADDR'));//主机名
+$info[] = array("服务器端口","Server Port",getenv('SERVER_PORT'));//端口
 $info[] = array("服务器操作系统","Operating System",PHP_OS); //服务器操作系统
 $info[] = array("WEB服务器版本","Web Server Version",$_SERVER['SERVER_SOFTWARE']); //web服务器版本
 $info[] = array("PHP版本","PHP Version",PHP_VERSION);//php版本
 $info[] = array("服务器语种","Server Language",getenv("HTTP_ACCEPT_LANGUAGE")); //服务器语种
 $info[] = array("ZEND版本","ZEND Version",zend_version());
-$info[] = array("绝对路径","Full path",$_SERVER['DOCUMENT_ROOT']. "<br>".$_SERVER['$PATH_INFO']); //绝对路径
+$info[] = array("绝对路径","Full path",$_SERVER['DOCUMENT_ROOT']. "<br>".$_SERVER["SCRIPT_NAME"]); //绝对路径
 $info[] = array("服务器剩余空间","Disk Free Space",intval(diskfreespace(".") / (1024 * 1024))."M"); //服务器空间大小
 $info[] = array("服务器时间","Server Current Time",date("n月j日H点i分s秒")); //服务器时间
 //$info[] = array("","",get_current_user()); //用户
@@ -50,7 +50,7 @@ $info[] = array("服务器时间","Server Current Time",date("n月j日H点i分s�
 
 /*PHP基本特性*/
 $dis_func = get_cfg_var("disable_functions");
-$php[] = array("PHP信息","PHPINFO",ereg("phpinfo",$dis_func)?"<font color=red>不支持<b>×</b></font>":"<font color=green>支持<b>√</b></font><a href=$PHP_SELF?testinfo=phpinfo>点此查看PHPINFO详细信息</a>");
+$php[] = array("PHP信息","PHPINFO",ereg("phpinfo",$dis_func)?"<font color=red>不支持<b>×</b></font>":"<font color=green>支持<b>√</b></font><a href={$_SERVER['PHP_SELF']}?testinfo=phpinfo>点此查看PHPINFO详细信息</a>");
 $php[] = array("自定义全局变量","register_globals",temp(get_cfg_var("register_globals")));
 $php[] = array("脚本运行可占最大内存","memory_limit",get_cfg_var("memory_limit")?get_cfg_var("memory_limit"):"无"); //单个脚本运行时可占用的最大内存
 $php[] = array("脚本上传文件大小限制","upload_max_filesize",get_cfg_var("upload_max_filesize")?get_cfg_var("upload_max_filesize"):"不允许上传附件");   //用PHP脚本上传文件大小限制
@@ -158,6 +158,7 @@ function temp($temp)
 function echoInfo($in,$tb=0)
 {
 	$tw = $tb != 1 ? array("20%", "30%", "50%") : array("50%", "25%", "25%");
+	$rs='';
 	for ($i = 0; $i < count($in); $i++)
 	{
 		$tbClass = $i%2 == 0 ? "bTable" : "cTable";
@@ -169,6 +170,7 @@ function echoInfo($in,$tb=0)
 }
 function echoTable($arr)
 {
+	$rs='';
 	for ($i = 0; $i < count($arr); $i++)
 	{
 		$rs .= '<table width="760" border="0" align="center" cellpadding="2" cellspacing="0" class="aTable">
@@ -267,7 +269,7 @@ a:active {
   <tr>
     <td colspan="2"><span class="aTitle"> ■函数支持情况检测:::... </span></td>
   </tr>
-  <FORM action=<?=$_SERVER[PHP_SELF]?>#function method=post>
+  <FORM action=<?=$_SERVER['PHP_SELF']?>#function method=post>
   <tr>
     <td class="bTable" width="80%">
 	&nbsp;
@@ -276,7 +278,7 @@ a:active {
 	<td class="bTable" width="20%"><INPUT type=submit value="CHECK" class=sub>	</td>
   </tr>
 	<?php
-	if ("check" == $fc)
+	if (isset($fc) && "check" == $fc)
 	{
 		$ss=temp(function_exists($fname));
 		echo "
@@ -294,7 +296,7 @@ a:active {
   <tr>
     <td colspan="2"><span class="aTitle"> ■邮件发送支持情况检测:::... </span></td>
   </tr>
-  <FORM action=<?=$_SERVER[PHP_SELF]?>#email method=post>
+  <FORM action=<?=$_SERVER['PHP_SELF']?>#email method=post>
   <tr>
     <td class="bTable" width="80%">
 	&nbsp;
@@ -303,7 +305,7 @@ a:active {
 	<td class="bTable" width="20%"><INPUT type=submit value="CHECK" class=sub>	</td>
   </tr>
 	<?php
-	if ("check" == $mt)
+	if (isset($mt) && "check" == $mt)
 	{
 		if (1 == function_exists("mail"))
 		{
@@ -336,7 +338,7 @@ a:active {
   <tr>
     <td colspan="2"><span class="aTitle"> ■MySQL数据库连接测试:::... </span></td>
   </tr>
-  <FORM action=<?=$_SERVER[PHP_SELF]?>#bottom method=post>
+  <FORM action=<?=$_SERVER['PHP_SELF']?>#bottom method=post>
   <tr>
     <td class="bTable" width="80%">
 	&nbsp;地址: <input class=input type=text value="localhost" name="sql_host" size=10>
@@ -347,7 +349,7 @@ a:active {
 	<td class="bTable" width="20%"><INPUT type=submit value="CHECK" class=sub>	</td>
   </tr>
 	<?
-	if ("mysql" == $conn)
+	if (isset($conn) && "mysql" == $conn)
 	{
 		if(function_exists("mysql_close")==1)
 		{
@@ -372,7 +374,7 @@ a:active {
   <tr>
     <td colspan="2"><span class="aTitle"> ■PostgreSQL数据库连接测试:::... </span></td>
   </tr>
-  <FORM action=<?=$_SERVER[PHP_SELF]?>#bottom method=post>
+  <FORM action=<?=$_SERVER['PHP_SELF']?>#bottom method=post>
   <tr>
     <td class="bTable" width="80%">
 	&nbsp;地址: <input class=input type=text value="localhost" name="sql_host" size=10>
@@ -384,7 +386,7 @@ a:active {
 	<td class="bTable" width="20%"><INPUT type=submit value="CHECK" class=sub>	</td>
   </tr>
   <?
-	if ("psql" == $conn)
+	if (isset($conn) && "psql" == $conn)
 	{
 		if(function_exists("pg_connect")==1)
 		{
