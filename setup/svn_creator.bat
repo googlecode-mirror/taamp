@@ -15,7 +15,11 @@ goto getname
 :createsvn
 	mkdir %newdirpath%
 	%TaAMPServerPath%\local\svn\bin\svnadmin.exe create %newdirpath%
+	IF EXIST %TaAMPServerPath%\local\svn\svnserve.conf goto copy_conf
 	echo 成功建立了%newdirpath%仓库
 	echo 你可以通过 svn://localhost/%newdirname% 进行访问
+
+:copy_conf
+	copy %TaAMPServerPath%\local\svn\svnserve.conf %newdirpath%\conf\ >null
 
 PAUSE
