@@ -1,21 +1,26 @@
-This is Subversion for Win32, version 1.6.6. Read the CHANGES file to
+This is Subversion for Win32, version 1.7.1. Read the CHANGES file to
 see what changed in this release:
 
-    http://svn.collab.net/repos/svn/branches/1.6.x/CHANGES
+    http://svn.collab.net/repos/svn/branches/1.7.x/CHANGES
 
 These binaries were built with:
 
-    Neon 0.28.6
-    Berkeley DB 4.4.20
-    OpenSSL 0.9.8k
-    ZLib 1.2.3
-    Apache 2.2.11
-    Python 2.6
+    APR 1.4.5
+    APR-util 1.3.12
+    APR-ICONV 1.2.1
+    Neon 0.29.6
+    Berkeley DB 4.8.30
+    OpenSSL 1.0.0e
+    ZLib 1.2.5
+    Apache 2.2.21
+    Python 2.6.6 and 2.7.2
+    Perl 5.12.3 (ActivePerl)
     libintl 0.14.1 (patched)
     Ruby 1.8.6
-    Cyrus SASL 2.1.22
-    serf 0.3.0
-    sqlite 3.6.19
+    Cyrus SASL 2.1.23
+    serf 1.0.0
+    sqlite 3.7.7.1
+    SWIG 1.3.24   (newer versions doesn't work with VC++6)
 
 The BDB binaries are at
 
@@ -27,16 +32,13 @@ The patched libintl is at
 
 Please read the Subversion INSTALL file for more information:
 
-    http://svn.collab.net/repos/svn/trunk/INSTALL
+    http://svn.apache.org/repos/asf/subversion/trunk/INSTALL
     
-Note for Python 2.5+ users: Since Python 2.5+ will no longer load modules with
-.dll extensions, you will need to rename the libsvn/*.dll files to .pyd
-manually.
 
 
 Package contents:
 
-    svn-win32-1.6.6/
+    svn-win32-1.7.1/
        README.txt           -- This file
        bin/                 -- All Subversion binaries and supporting DLLs,
           *.exe                including APR DLLs
@@ -93,6 +95,7 @@ Package contents:
        python/              -- Python language bindings
           libsvn/
              *.py
+             *.pyd
              *.dll
              *.pdb
           svn/
