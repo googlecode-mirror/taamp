@@ -6,13 +6,13 @@ TaAMP主要方便新手学习php时使用.另外还为以后我的php开发框架ToAction作为开发环境的
 
 +Apache 2.2.15
 
-+php 5.2.13
++php 5.2.17.17
 
-+MySQL 5.1.44-community
++MySQL 5.5.17 win32-community
 
-+phpMyAdmin 3.3.1
++phpMyAdmin 3.4.7.1 all languages
 
-+svn 1.6.6
++svn 1.7.1
 
 二、安装方法
 1)进入TaAMP\setup目录双击运行install.bat(服务器已经安装完成)
@@ -20,6 +20,7 @@ TaAMP主要方便新手学习php时使用.另外还为以后我的php开发框架ToAction作为开发环境的
 3)最后你就可以在TaAMP\www目录下运行你的php程序
 
 Mysql默认管理帐号: root 密码:111111
+可以使用phpMyAdmin进行管理 http://localhost/phpmyadmin/
 
 三、卸载方法
 只需要进行TaAMP\setup目录双击运行uninstall.bat (服务器程序就可以轻松卸载)
