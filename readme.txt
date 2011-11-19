@@ -17,7 +17,8 @@ TaAMP主要方便新手学习php时使用.另外还为以后我的php开发框架ToAction作为开发环境的
 二、安装方法
 1)进入TaAMP\setup目录双击运行install.bat(在安装的时候可能会提示调用sc命令,由于需要使用sc安装svn服务.所以请)
 2)进入TaAMP目录运行Monitor.exe程序（该程序能监控apache及mysql的运行状态）
-3)最后你就可以在TaAMP\www目录下运行你的php程序
+3)查看 phpinfo (http://localhost/phpinfo.php)
+4)最后你就可以在TaAMP\www目录下运行你的php程序
 
 Mysql默认管理帐号: root 密码:111111
 可以使用phpMyAdmin进行管理 http://localhost/phpmyadmin/
