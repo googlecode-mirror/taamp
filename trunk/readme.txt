@@ -52,8 +52,8 @@ TaAMP主要方便新手学习php时使用.另外还为以后我的php开发框架ToAction作为开发环境的
 只需要进行setup目录双击运行uninstall.bat (服务器程序就可以轻松卸载)
 
 四、升级方法
-2)将旧版的程序卸载(执行setup\uninstall.bat),并旧版的程序安装目录改名为 old_taamp
-1)下载最新版本(下载页面http://code.google.com/p/taamp/downloads/list),并解压为taamp
+1)将旧版的程序卸载(执行setup\uninstall.bat),并旧版的程序安装目录改名为 old_taamp
+2)下载最新版本(下载页面http://code.google.com/p/taamp/downloads/list),并解压为taamp
 3)将旧版的服务器套件中的文件复制到新版中 
     a)local\php\php.ini (如果没有更改,将不需要复制)
     b)local\mysql\data\
@@ -64,6 +64,10 @@ TaAMP主要方便新手学习php时使用.另外还为以后我的php开发框架ToAction作为开发环境的
     g)local\svn\svnrepos (如果添加过svn库,可以不复制)
 4)安装新版本 (执行 setup\install.bat)
 5)测试有没有产生问题
+
+	*注意：从 0.1.46 版开始，对htepd-vhost.conf进行分离。将每个虚拟主机的配置文件存放到 local\apache\conf\vhost目录下。
+	如果从 0.1.46 以前的版本进行升级，需要将 local\apache\conf\extra\httpd-vhosts.conf 内容按域名分割成单个文件然后保存到
+	local\apache\conf\vhost 下。具体方法参看 《Apache 增加虚拟主机》的内容
 
 五、SVN管理
 如何管理svn可以访问 http://atim.cn/go.php/tags/svn/
