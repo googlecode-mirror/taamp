@@ -23,16 +23,30 @@ TaAMP主要方便新手学习php时使用.另外还为以后我的php开发框架ToAction作为开发环境的
 3)查看 phpinfo (http://localhost/phpinfo.php)
 4)最后你就可以在TaAMP\www目录下运行你的php程序
 
-Mysql默认管理帐号: root 密码:111111
-可以使用phpMyAdmin进行管理 http://localhost/phpmyadmin/
+	Mysql默认管理帐号: root 密码:111111
+		可以使用phpMyAdmin进行管理 http://localhost/phpmyadmin/
 
-Memcach 状态管理程序
-可以访问 http://localhost/memcache/ 进行管理 
-管理页面的帐号: memcache 密码:password
-如果需要修改密码，打开 local/memcache_manage/index.php
-修改
-define('ADMIN_USERNAME','memcache'); 	// Admin Username
-define('ADMIN_PASSWORD','password');  	// Admin Password
+	Memcach 状态管理程序
+		可以访问 http://localhost/memcache/ 进行管理 
+		管理页面的帐号: memcache 密码:password
+		如果需要修改密码，打开 local/memcache_manage/index.php
+		修改
+		define('ADMIN_USERNAME','memcache'); 	// Admin Username
+		define('ADMIN_PASSWORD','password');  	// Admin Password
+	
+	Apache 增加虚拟主机
+		1) 进入 local/apache/conf/vhost 目录。
+		2) 复制000-default 文件，并改名如： 001-toactin.cn。前面的数字为加载的顺序。
+		3) 修改具体内容如:
+
+			<VirtualHost *:80>
+				ServerAdmin taamp@localhost
+				DocumentRoot "../../www/toaction.cn"
+				ServerName toaction.cn
+				#ServerAlias www.toaction.cn
+				ErrorLog "logs/dummy-toaction.cn-error.log"
+				CustomLog "logs/dummy-toaction.cn-access.log" common
+			</VirtualHost>
 
 三、卸载方法
 只需要进行setup目录双击运行uninstall.bat (服务器程序就可以轻松卸载)
