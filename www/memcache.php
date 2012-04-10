@@ -12,10 +12,10 @@ $tmp_object->int_attr = 123;
 $tmp_object->timestamp = time();
 
 
-$memcache->set('afdf/sdafsdfl/asdfsfd', $tmp_object, false, 10) or die ("Failed to save data at the server");
+$memcache->set('key', $tmp_object, false, 10) or die ("Failed to save data at the server");
 echo "Store data in the cache (data will expire in 10 seconds)<br/>\n";
 
-$get_result = $memcache->get('afdf/sdafsdfl/asdfsfd.php');
+$get_result = $memcache->get('key');
 echo "Data from the cache:<br/>\n";
 
 var_dump($get_result);

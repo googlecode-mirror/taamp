@@ -16,6 +16,7 @@ TaAMP主要方便新手学习php时使用.另外还为以后我的php开发框架ToAction作为开发环境的
 
 +memcached 1.4.5
 
++memcache.php 管理memcached的程序
 二、安装方法
 1)进入TaAMP\setup目录双击运行install.bat(在安装的时候可能会提示调用sc命令,由于需要使用sc安装svn服务.所以请)
 2)进入TaAMP目录运行Monitor.exe程序（该程序能监控apache及mysql的运行状态）
@@ -24,6 +25,14 @@ TaAMP主要方便新手学习php时使用.另外还为以后我的php开发框架ToAction作为开发环境的
 
 Mysql默认管理帐号: root 密码:111111
 可以使用phpMyAdmin进行管理 http://localhost/phpmyadmin/
+
+Memcach 状态管理程序
+可以访问 http://localhost/memcache/ 进行管理 
+管理页面的帐号: memcache 密码:password
+如果需要修改密码，打开 local/memcache_manage/index.php
+修改
+define('ADMIN_USERNAME','memcache'); 	// Admin Username
+define('ADMIN_PASSWORD','password');  	// Admin Password
 
 三、卸载方法
 只需要进行setup目录双击运行uninstall.bat (服务器程序就可以轻松卸载)
