@@ -13,10 +13,13 @@ set /p input=如果明白，请输入ok:
 echo %input%
 if not "x%input%"=="xok" goto exit_install
 
+call "%TaAMPServerPath%\setup\uninstall.bat" from_install
+
 rem install Apache
+cd "%TaAMPServerPath%\local\apache\"
 "%TaAMPServerPath%\local\apache\bin\httpd.exe" -k install -n TaAMP.Apache
 (sc query TaAMP.Apache | find "TaAMP.Apache">nul && net start TaAMP.Apache)
-
+cd "%TaAMPServerPath%"
 
 rem install Mysql
 "%TaAMPServerPath%\local\mysql\bin\mysqld.exe" --install TaAMP.Mysql --defaults-file="%TaAMPServerPath%\local\mysql\my.ini"
@@ -24,12 +27,12 @@ rem install Mysql
 
 
 rem install Svn
-sc create TaAMP.Svn binpath= "%TaAMPServerPath%\local\svn\bin\svnserve.exe --service -r %TaAMPServerPath%\local\svn\svnrepos" depend= tcpip start= auto
+sc create TaAMP.Svn binPath= "%TaAMPServerPath%\local\svn\bin\svnserve.exe --service -r %TaAMPServerPath%\local\svn\svnrepos" depend= tcpip start= auto
 (sc query TaAMP.Svn | find "TaAMP.Svn">nul && net start TaAMP.Svn)
 
 
 rem install Memcached
-sc create TaAMP.Memcached binpath= "%TaAMPServerPath%\local\memcached\srvany.exe" displayname= "TaAMP.memcached" start= auto
+sc create TaAMP.Memcached binPath= "%TaAMPServerPath%\local\memcached\srvany.exe" displayname= "TaAMP.memcached" start= auto
 (sc query TaAMP.Memcached | find "TaAMP.Memcached">nul && reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TaAMP.Memcached\Parameters" /v "Application" /d "%TaAMPServerPath%\\local\\memcached\\memcached.exe")
 (sc query TaAMP.Memcached | find "TaAMP.Memcached">nul && reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TaAMP.Memcached\Parameters" /v "AppParameters" /d "")
 (sc query TaAMP.Memcached | find "TaAMP.Memcached">nul && reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TaAMP.Memcached\Parameters" /v "AppDirectory" /d "%TaAMPServerPath%\\local\\memcached\\")
