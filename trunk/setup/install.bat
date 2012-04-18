@@ -27,7 +27,7 @@ rem install Mysql
 
 
 rem install Svn
-sc create TaAMP.Svn binPath= "%TaAMPServerPath%\local\svn\bin\svnserve.exe --service -r %TaAMPServerPath%\local\svn\svnrepos" depend= tcpip start= auto
+sc create TaAMP.Svn binPath= "%TaAMPServerPath%\local\svn\bin\svnserve.exe --service -r %TaAMPServerPath%\local\svn\svnrepos" depend= tcpip displayname= "TaAMP.Svn" start= auto
 (sc query TaAMP.Svn | find "TaAMP.Svn">nul && net start TaAMP.Svn)
 
 
