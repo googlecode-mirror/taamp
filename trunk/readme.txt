@@ -1,4 +1,4 @@
-一、欢迎使用TaAMP的开发套件程序.
+ 一、欢迎使用TaAMP的开发套件程序.
 
 TaAMP主要方便新手学习php时使用.另外还为以后我的php开发框架ToAction作为开发环境的基本求要.
 本套件为绿色套件，只要安装路径没有中文目录就可以。
@@ -6,11 +6,11 @@ TaAMP主要方便新手学习php时使用.另外还为以后我的php开发框架ToAction作为开发环境的
 
 +Apache 2.2.15
 
-+php 5.2.17.17
++php 5.3.16
 
-+MySQL 5.5.17 win32-community
++MySQL 5.5.22 win32-community
 
-+phpMyAdmin 3.4.7.1 all languages
++phpMyAdmin 3.5.2.2 zh_cn
 
 +svn 1.7.1
 
