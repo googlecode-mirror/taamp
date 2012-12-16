@@ -61,7 +61,7 @@ TaAMP主要方便新手学习php时使用.另外还为以后我的php开发框架ToAction作为开发环境的
     d)www\ 
     e)local\apache\conf\httpd.conf (如果没有更改,将不需要复制)
     f)local\apache\conf\extra\httpd-vhosts.conf (如果没有更改,将不需要复制)
-    g)local\svn\svnrepos (如果添加过svn库,可以不复制)
+    g)local\svn\svnrepos (如果没添加过svn库,可以不复制)
 4)安装新版本 (执行 setup\install.bat)
 5)测试有没有产生问题
 
